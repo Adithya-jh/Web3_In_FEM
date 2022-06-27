@@ -29,14 +29,32 @@ async function run(){
         throw new Error("Please add walled")
     }
 
-    const hello = new ethers.Contract(
-        "0x5fbdb2315678afecb367f032d93f642f64180aa3", //address
-    ["function Hello() public pure returns (string memory)"], //interface (our contract)
-    new ethers.providers.Web3Provider(getEth()) // signin provider
+    const counter = new ethers.Contract(
+        process.env.CONTRACT_ADDRESS, //address
+    ["function count() public",
+    " function getCounter() public view returns (uint32)"], //interface (our contract)
+    new ethers.providers.Web3Provider(getEth()).getSigner() // signin provider
      
     )
 
-    document.body.innerHTML = await hello.Hello()
+    const el = document.createElement('div')
+    async function setCounter(){
+        el.innerHTML = await counter.getCounter()
+    }
+
+    setCounter()
+
+    const button = document.createElement('button')
+    button.innerText = "increment"
+
+    button.onclick = async function(){
+        await counter.count()
+        setCounter()
+    }
+    // document.body.innerHTML = await counter.Hello()
+    document.body.appendChild(el)
+    document.body.appendChild(button)
+
 
 
 }

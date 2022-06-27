@@ -4,12 +4,16 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
 contract Counter{
-    uint8 counter;
+    uint32 counter;
 
-    function count() public returns (uint){
+    function count() public{
             counter++;
             console.log("Counter is now", counter);
-            return counter;
+           
+    }
+
+    function getCounter() public view returns (uint32){
+        return counter;
     }
 
 

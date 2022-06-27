@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/jayahariaditiya/Desktop/webt/contracts/counter.sol": {
-      "lastModificationDate": 1656237057394,
-      "contentHash": "19092d868f795240eee937945655b621",
+      "lastModificationDate": 1656345521639,
+      "contentHash": "471ce6d1d0009d344897ad167f773630",
       "sourceName": "contracts/counter.sol",
       "solcConfig": {
         "version": "0.8.10",
